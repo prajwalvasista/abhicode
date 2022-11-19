@@ -1,0 +1,49 @@
+
+
+*)gagan github all : https://github.com/Gagan0826/CLoud-computing
+ ---------------------------------------------------------------------------
+*)database connection pgm 1:
+<?php
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+define('DB_SERVER', 'database-3.cuu8bhzjya5z.ap-south-1.rds.amazonaws.com');
+define('DB_USERNAME', 'admin');
+define('DB_PASSWORD', 'abhishek');
+define('DB_NAME', 'employees_db');
+ 
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+?>
+
+
+*) data user info 1:
+
+  #!/bin/bash
+yum update -y
+amazon-linux-extras install -y php8.0 mariadb10.5
+yum install -y httpd git
+systemctl start httpd
+systemctl enable httpd
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+*) fork ..... github.com/gnataraj/php-mysql
+-----------------------------------------------------------------
+
+project 2:
+*)lambda link pgm 2:
+  https://raw.githubusercontent.com/gnataraj/aws-lambda/main/emp-json-s3-dynamodb.py
+
+
+-------------------------------------------------------------------------------
+project 3 :
+*) https://raw.githubusercontent.com/gnataraj/aws-autoscaling/main/userdata.txt
